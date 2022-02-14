@@ -7,3 +7,13 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
 
 #Variaveis globais e Rotas
+
+#WebApi para ambiente teste spotfy
+
+    https://developer.spotify.com/documentation/web-api/libraries/
+
+    https://github.com/jmperez/spotify-web-api-js
+
+    $ npm install -S spotify-web-api-js
+
+    

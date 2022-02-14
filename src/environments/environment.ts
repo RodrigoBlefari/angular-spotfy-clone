@@ -6,10 +6,10 @@ export const environment = {
   production: false
 };
 
-export const SpotfyConfiguration = {
+export const SpotifyConfiguration = {
   clientId: '4f701e0d3bcc4b83a2f7eb88931aaa5b',
   authEndpoint: 'https://accounts.spotify.com/authorize',
-  redirectUrl: 'https://localhost:4200/login/',
+  redirectUrl: 'http://localhost:4200/login/',
   scopes: [
     "user-read-currently-playing", // musica tocando agora
     "user-read-recently-played", // ler musicas tocadas recentemente
@@ -17,8 +17,8 @@ export const SpotfyConfiguration = {
     "user-top-read", // top artistas e musicas do usuario
     "user-modify-playback-state", // alterar do player do usuario
     "user-library-read", //ler biblioteca dos usuarios
-    "palylist-read-private", // ler playlist privadas
-    "palylist-read-collaborative" // ler playlists colaborativas
+    "playlist-read-private", // ler playlist privadas
+    "playlist-read-collaborative" // ler playlists colaborativas
   ]
 }
 /*

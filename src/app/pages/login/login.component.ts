@@ -16,7 +16,12 @@ export class LoginComponent implements OnInit {
 
   obterTokenUrlCallback(){
     const token = this.spotifyService.obterTokenUrlCallback();
+    if(!!token){
+      console.log('token' + token);
+      this.spotifyService.definirAcessoToken(token);
+    }
   }
+
   abrirPaginaLogin() {
       window.location.href = this.spotifyService.obterUrlLogin();
   }
