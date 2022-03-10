@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AppRotas } from './app-routes';
 
 import { AppComponent } from './app.component';
+import { PainelEsquerdoComponent } from './components/painel-esquerdo/painel-esquerdo.component';
 
 @NgModule({
   declarations: [

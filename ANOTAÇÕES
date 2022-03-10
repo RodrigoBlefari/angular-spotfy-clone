@@ -16,4 +16,8 @@
 
     $ npm install -S spotify-web-api-js
 
-    
+#ICONES IMPORTAÇÕES
+
+    $ npm i @fortawesome/angular-fontawesome
+    $ npm i @fortawesome/fontawesome-svg-core
+    $ npm i @fortawesome/free-solid-svg-icons
