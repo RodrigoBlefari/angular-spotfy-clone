@@ -5,6 +5,7 @@ import Spotify from 'spotify-web-api-js';
 import { IUsuario } from '../interfaces/IUsuarios';
 import { SpotifyPlaylistParaPlaylist, SpotifyUserParaUsuario } from '../Common/spotifyHelper';
 import { IPlaylist } from '../interfaces/IPlaylist';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class SpotifyService {
   spotifyApi: Spotify.SpotifyWebApiJs = null;
   usuario: IUsuario;
 
-  constructor() { 
+  constructor(private router: Router) { 
     this.spotifyApi = new Spotify();
   }
 
@@ -78,4 +79,10 @@ export class SpotifyService {
     
     return playlists.items.map(x=> SpotifyPlaylistParaPlaylist(x));
   }  
+
+  logout(){
+    alert('dasdsadsa');
+    localStorage.clear();
+    this.router.navigate(['/login'])
+  }
 }
