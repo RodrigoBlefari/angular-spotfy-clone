@@ -3,45 +3,47 @@ import { SpotifyConfiguration } from 'src/environments/environment';
 
 import Spotify from 'spotify-web-api-js';
 import { IUsuario } from '../interfaces/IUsuarios';
-import { SpotifyPlaylistParaPlaylist, SpotifyUserParaUsuario } from '../Common/spotifyHelper';
+import {
+  SpotifyArtistaParaArtista,
+  SpotifyPlaylistParaPlaylist,
+  SpotifyUserParaUsuario,
+} from '../Common/spotifyHelper';
 import { IPlaylist } from '../interfaces/IPlaylist';
 import { Router } from '@angular/router';
+import { IArtista } from '../interfaces/IArtistas';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SpotifyService {
-
   spotifyApi: Spotify.SpotifyWebApiJs = null;
   usuario: IUsuario;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router) {
     this.spotifyApi = new Spotify();
   }
 
-  async inicializarUsuario(){
-    if(!!this.usuario){
+  async inicializarUsuario() {
+    if (!!this.usuario) {
       return true;
     }
 
     const token = localStorage.getItem('token');
-    if(!token) 
-      return false;
- 
+    if (!token) return false;
+
     try {
       this.definirAcessoToken(token);
       await this.obterSpotifyUsuario();
       return !!this.usuario;
-    }catch(ex) {
+    } catch (ex) {
       return false;
     }
   }
-  
-  async obterSpotifyUsuario(){
+
+  async obterSpotifyUsuario() {
     const userInfo = await this.spotifyApi.getMe();
     this.usuario = SpotifyUserParaUsuario(userInfo);
     console.log(userInfo);
-    
   }
 
   obterUrlLogin() {
@@ -51,14 +53,12 @@ export class SpotifyService {
     const scopes = `scope=${SpotifyConfiguration.scopes.join('%20')}&`;
     const responseType = `response_type=token&show_dialog=true`;
     return authEndpoint + clientId + redirectUrl + scopes + responseType;
-    
   }
 
   obterTokenUrlCallback() {
-
     console.log(window.location.hash);
-    
-    if(!window.location.hash){
+
+    if (!window.location.hash) {
       return '';
     }
 
@@ -70,19 +70,25 @@ export class SpotifyService {
 
   definirAcessoToken(token: string) {
     this.spotifyApi.setAccessToken(token);
-    localStorage.setItem('token', token);    
+    localStorage.setItem('token', token);
   }
 
-  async buscarPlaylistUsuario(offset = 0, limit= 50): Promise<IPlaylist[]>{
-    const playlists = await this.spotifyApi.getUserPlaylists(this.usuario.id, { offset, limit});
-    console.log(playlists);
-    
-    return playlists.items.map(x=> SpotifyPlaylistParaPlaylist(x));
-  }  
+  async buscarPlaylistUsuario(offset = 0, limit = 50): Promise<IPlaylist[]> {
+    const playlists = await this.spotifyApi.getUserPlaylists(this.usuario.id, {
+      offset,
+      limit,
+    });
+    return playlists.items.map((x) => SpotifyPlaylistParaPlaylist(x));
+  }
 
-  logout(){
-    alert('dasdsadsa');
+  async buscarTopArtistas(limit = 10): Promise<IArtista[]> {
+    const artistas = await this.spotifyApi.getMyTopArtists({ limit });
+    console.log(artistas.items);
+    return artistas.items.map(SpotifyArtistaParaArtista);
+  }
+
+  logout() {
     localStorage.clear();
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
 }

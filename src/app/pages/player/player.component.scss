@@ -1,3 +1,8 @@
 :host {
-    display:flex
+    display:flex;
+
+    .rotas-container{
+        display: block;
+        width: 100%;
+    }
 }
