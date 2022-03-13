@@ -17,6 +17,7 @@ import { IMusica } from '../interfaces/IMusica';
 @Injectable({
   providedIn: 'root',
 })
+
 export class SpotifyService {
   spotifyApi: Spotify.SpotifyWebApiJs = null;
   usuario: IUsuario;
@@ -45,7 +46,6 @@ export class SpotifyService {
   async obterSpotifyUsuario() {
     const userInfo = await this.spotifyApi.getMe();
     this.usuario = SpotifyUserParaUsuario(userInfo);
-    console.log(userInfo);
   }
 
   obterUrlLogin() {
@@ -58,15 +58,13 @@ export class SpotifyService {
   }
 
   obterTokenUrlCallback() {
-    console.log(window.location.hash);
 
     if (!window.location.hash) {
       return '';
     }
 
     const params = window.location.hash.substring(1).split('&');
-    console.log(params);
-
+  
     return params[0].split('=')[1];
   }
 
@@ -83,9 +81,8 @@ export class SpotifyService {
     return playlists.items.map((x) => SpotifyPlaylistParaPlaylist(x));
   }
 
-  async buscarTopArtistas(limit = 10): Promise<IArtista[]> {
+  async buscarTopArtista(limit = 10): Promise<IArtista[]> {
     const artistas = await this.spotifyApi.getMyTopArtists({ limit });
-    console.log(artistas.items);
     return artistas.items.map(SpotifyArtistaParaArtista);
   }
 
@@ -105,6 +102,14 @@ export class SpotifyService {
     return SpotifyTrackParaMusica(musicaSpotify.item);
   }
   
+  async voltarMusica(){
+    await this.spotifyApi.skipToPrevious();
+  }
+
+  async proximaMusica(){
+    await this.spotifyApi.skipToNext();
+  }
+
   logout() {
     localStorage.clear();
     this.router.navigate(['/login']);

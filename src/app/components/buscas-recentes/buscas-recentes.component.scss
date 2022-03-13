@@ -1,0 +1,44 @@
+@import "variaveis";
+:host {
+    input {
+        width: 100%;
+        padding: 10px 5px;
+        border-radius: 8px;
+        border-color: $preto-transparent-30;
+        outline: none;
+        color: $cor-fundo2;
+        font-size: 1rem;
+        font-weight: 500;
+
+        &::placeholder {
+            color: $cor-fundo;
+            font-size: 0.85rem;
+        }
+
+        &:focus,
+        &:active {
+            border-color: $cor-verde-spotify;
+            border-width: 2px;
+        }
+    }
+    .sugestoes {
+        flex-wrap: wrap;
+        
+        span{
+            background: $cor-verde-spotify;
+            color: $cor-primaria;
+            margin-right: 5px;
+            padding: 5px 10px;
+            border: 1px solid $cor-verde-spotify;
+            margin-top: 10px;
+            font-size: .9rem;
+            border-radius: 20px;
+            cursor: pointer;
+
+            &:hover{
+                background: $cor-primaria;
+                color: $cor-verde-spotify;
+            }
+        }
+    }
+}
