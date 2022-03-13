@@ -51,7 +51,8 @@ body {
 }
 
 .card {
-    box-shadow: 0px 0px 15px $preto-transparent-03;
+    box-shadow: 0px 0px 320px $preto-transparent-03;
+    // box-shadow: 0px 0px 15px $preto-transparent-03;
     background-color: $branco;
     border-radius: 10px;
 }

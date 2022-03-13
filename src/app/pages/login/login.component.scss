@@ -22,9 +22,11 @@
     min-width: 200px;
     padding: 20px;
     border-radius: 500px;
-    background-color: $cor-primaria;
-    color: white;
+    background-color: $cor-fundo;
+    color: $cor-primaria;
     border: 0;
     cursor: pointer;
+    box-shadow: 0px 0px 320px $preto-transparent-03;
+    // box-shadow: 0px 0px 15px $preto-transparent-03;
   }
 }

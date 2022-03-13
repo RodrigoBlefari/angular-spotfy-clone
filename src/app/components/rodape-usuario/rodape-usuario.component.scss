@@ -22,10 +22,13 @@ div{
         font-weight: 700;
         font-size: .9rem;
         white-space:nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .icone {
         flex-grow: 0;
         cursor: pointer;
+        margin-left: 10px;
     }
 }
