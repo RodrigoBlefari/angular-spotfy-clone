@@ -15,20 +15,28 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log('callback On init entrou');
+    
     this.obterTokenUrlCallback();
   }
 
   obterTokenUrlCallback(){
     const token = this.spotifyService.obterTokenUrlCallback();
+    
+    console.log('token call back', token);
+
     if(!!token){
+      console.log('sucesso do token')
       this.spotifyService.definirAcessoToken(token);
       this.router.navigate(['/player/home']);
     } else {
-      // this.router.navigate(['/login']);
+      console.log(' else erro do token')
+      this.router.navigate(['/login']);
     }
   }
 
   abrirPaginaLogin() {
+
       window.location.href = this.spotifyService.obterUrlLogin();
   }
 
