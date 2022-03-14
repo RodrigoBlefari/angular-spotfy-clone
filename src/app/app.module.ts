@@ -4,7 +4,8 @@ import { RouterModule } from '@angular/router';
 import { AppRotas } from './app-routes';
 
 import { AppComponent } from './app.component';
-import { PainelEsquerdoComponent } from './components/painel-esquerdo/painel-esquerdo.component';
+
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import { PainelEsquerdoComponent } from './components/painel-esquerdo/painel-esq
     BrowserModule,
     RouterModule.forRoot(AppRotas)
   ],
-  providers: [],
+  providers: [
+    {provide:LocationStrategy, useClass:HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
