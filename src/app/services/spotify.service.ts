@@ -49,6 +49,7 @@ export class SpotifyService {
   }
 
   obterUrlLogin() {
+    alert('dsadsa');
     const authEndpoint = `${SpotifyConfiguration.authEndpoint}?`;
     const clientId = `client_id=${SpotifyConfiguration.clientId}&`;
     const redirectUrl = `redirect_uri=${SpotifyConfiguration.redirectUrl}&`;
