@@ -1,6 +1,20 @@
 <div class="base flex flex-center">
-    <img src="assets/images/spotify-logo-inicio.png" alt="logo spotify">
-    <button (click)="abrirPaginaLogin()">
-        Abrir meu spotify
-    </button>
+	<img src="assets/images/spotify-logo-inicio.png"
+		alt="logo spotify">
+	<h2>
+		Clone spotify feito em Angular sem base de dados, apenas com acesso API.
+	</h2>
+	Instruções:
+	<p [class.erro]="errorTokenAcesso == true">
+		1- Enviar Email para liberação acesso na api do spotify( rodrigo.blefari@gmail.com)
+	</p>
+	2- Após logar, vc precisa que um dispositivo estaja tocando, por exl celular ou app computador ou web. Assim a ferramenta vai controalr esse dispositivo.
+	<br>
+	<span>
+		A aplicação vai mapear e disponibilizar informações como músicas, playlists e controlar o seu player, podendo mudar musicas, escolher qual vai tocar etc..
+        algumas funcionalidades em desenvolvimento.
+        Aplicação feita para estudo e protifólio por Rodrigo Blefari Gonçalves.
+        https://github.com/RodrigoBlefari/angular-spotfy-clone
+	</span>
+	<button (click)="abrirPaginaLogin()">Abrir meu spotify</button>
 </div>
