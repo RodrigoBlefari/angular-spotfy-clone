@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('callback On init entrou');
     
     this.obterTokenUrlCallback();
   }
@@ -23,14 +22,12 @@ export class LoginComponent implements OnInit {
   obterTokenUrlCallback(){
     const token = this.spotifyService.obterTokenUrlCallback();
     
-    console.log('token call back', token);
-
     if(!!token){
-      console.log('sucesso do token')
       this.spotifyService.definirAcessoToken(token);
       this.router.navigate(['/player/home']);
     } else {
-      console.log(' else erro do token')
+      console.log('Para entrar na aplicação é necessário mandar email de login do Spotify para liberar na API, (rodrigo.blefari@gmail.com) Obrigado.')
+
       this.router.navigate(['/login']);
     }
   }

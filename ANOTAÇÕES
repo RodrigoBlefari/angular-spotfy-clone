@@ -25,3 +25,31 @@
 #Biblioteca para lidar com Tempo e Datas
 
     $ npm i date-fns
+
+
+#ANOTAÇÕES PARA PUBLICAÇÃO
+
+Salve devs, Acho que como na vida é um ajudando o outro e acredito muito nisso faço questão de por solução dos problemas de publicação aqui.
+
+1 - Aqui mesmo no youtube ensina como publicar um site no netlify angular
+
+2 - Para buildar o projeto vc precisa colocar as variaveis do environment.ts para environment.prod.ts
+
+3 - eu fiz publicação no netlify pelo github então se for seguir esses passos recomendo que faça.
+
+4 - tive problema com rotas! tal de Refresh page not found. o site entra e quando ele esta em alguma rota ele atualiza pagina ele não acha,
+a solução foi em importar no app module HashLocationStrategy, HashLocationStrategy vou tentar deixar meu git para ser copiado.
+
+4 - o netlify precisa alterar nome do dominio para ficar dominio fixo se não ele vai ficar gerando numeros em cada build e o redirect do spotify nao vai funcionar
+
+5- falando em redirect, vc precisa alterar a url de redirect la naquele arquivo de variaveis prod e também ir no dashboard spotify que vc fez no começo da aula e adicionar essa redirect la!
+
+6 - Quando vc resolve problema de 'Page not found refresh angular' ele poe # na url, porém spotify nao vai aceitar redirecionar para urls com #, eu então peguei código do login component e joguei dentro de um onInit que criei no app-component que é a primeira coisa a ser executada no projeto, então o redirect vai ficar simplesmente pro link do seu site sem o /login
+
+7 - para que algum amigo seu entre e teste vc precisa também entrar no seu dashboard spotify e add email de usuario da pessoa!
+
+espero ter ajudado, obrigado cristian se tiver alguma solução melhor aguardo mais cursos ou algo referente á isso.
+
+meu github para verificação é RodrigoBlefari/angular-spotfy-clone (ainda vou mexendo no projeto enquanto este comentario esta aqui, mas para fins dessa solução basta vc pegar commits desta data atual)
+
+Tenho longa experiencia programação mas estou largando php para frames js, ja coisas e estudos react-native, angular, react e estou precisando de um trabalho no momento quem tiver uma oportunidade. obrigado.
