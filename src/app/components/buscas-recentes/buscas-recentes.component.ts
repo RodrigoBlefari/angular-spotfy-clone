@@ -25,6 +25,7 @@ export class BuscasRecentesComponent implements OnInit {
     this.buscar();
   }
   buscar(){
+    alert('Em processo de desenvolvimento..');
     console.log(this.campoPesquisa);
   }
 }

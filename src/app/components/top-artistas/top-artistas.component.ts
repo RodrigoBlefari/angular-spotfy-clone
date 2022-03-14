@@ -24,6 +24,7 @@ export class TopArtistasComponent implements OnInit {
   }
 
   buscarArtista(artista: IArtista){
+    alert('Em processo de desenvolvimento..');
     console.log(artista); 
   }
 }

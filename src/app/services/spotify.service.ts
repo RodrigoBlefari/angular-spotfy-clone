@@ -49,7 +49,6 @@ export class SpotifyService {
   }
 
   obterUrlLogin() {
-    alert('dsadsa');
     const authEndpoint = `${SpotifyConfiguration.authEndpoint}?`;
     const clientId = `client_id=${SpotifyConfiguration.clientId}&`;
     const redirectUrl = `redirect_uri=${SpotifyConfiguration.redirectUrl}&`;
@@ -59,14 +58,12 @@ export class SpotifyService {
   }
 
   obterTokenUrlCallback() {
-    console.log('entrou call back');
     
     if (!window.location.hash) {
       return '';
     }
 
     const params = window.location.hash.substring(1).split('&');
-    console.log('params', params);
   
     return params[0].split('=')[1];
     
