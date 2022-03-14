@@ -8,6 +8,8 @@ import { SpotifyService } from 'src/app/services/spotify.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  
+  errorTokenAcesso = false;
 
   constructor(
     private spotifyService : SpotifyService,
@@ -26,8 +28,7 @@ export class LoginComponent implements OnInit {
       this.spotifyService.definirAcessoToken(token);
       this.router.navigate(['/player/home']);
     } else {
-      console.log('Para entrar na aplicação é necessário mandar email de login do Spotify para liberar na API, (rodrigo.blefari@gmail.com) Obrigado.')
-
+      this.errorTokenAcesso = true;
       this.router.navigate(['/login']);
     }
   }

@@ -5,6 +5,9 @@
   width: 100vw;
   height: 100vh;
   flex-direction: column;
+  color: white;
+  text-align: left;
+  padding: 0px 100px;
 
   .base {
     width: 100%;
@@ -29,4 +32,25 @@
     box-shadow: 0px 0px 320px $preto-transparent-03;
     // box-shadow: 0px 0px 15px $preto-transparent-03;
   }
+
+  span{
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: $cor-verde-spotify;
+    font-weight: 400;
+    text-decoration: none;
+    font-style: italic;
+    font-variant: normal;
+    text-transform: none;
+  
+  }
+  p{
+    
+    &.erro{
+      color: red;
+    }
+  }
+  
 }
